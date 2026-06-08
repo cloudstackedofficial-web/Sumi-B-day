@@ -1,93 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just One Minute</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>One Minute Please 🥺</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#fdfbfb,#ebedee);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:url("YOUR_PHOTO.jpg") center center/cover no-repeat;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(3px);
 }
 
 .card{
-    width:90%;
-    max-width:500px;
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid #ffb6c1;
+position:relative;
+z-index:2;
+width:90%;
+max-width:600px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+border-radius:24px;
+padding:30px;
+text-align:center;
+color:white;
 }
 
 h1{
-    color:#444;
+margin-bottom:20px;
+}
+
+#message{
+display:none;
+font-size:20px;
+line-height:1.8;
+margin-top:20px;
 }
 
 button{
-    background:#ff6b81;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:16px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+margin:10px;
 }
 
-.message{
-    display:none;
-    margin-top:20px;
-    font-size:18px;
-    color:#555;
-    line-height:1.6;
+.yes{
+background:#4CAF50;
+color:white;
+}
+
+.no{
+background:#ff4d4d;
+color:white;
+position:relative;
+}
+
+.heart{
+position:absolute;
+bottom:-20px;
+animation:float 8s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
 }
 </style>
 </head>
 
 <body>
 
+<div class="overlay"></div>
+
 <div class="card">
-    <img src="YOUR_IMAGE_URL" alt="Photo">
 
-    <h1>Hi 😊</h1>
+<h1>Before you leave... 🥺</h1>
 
-    <p>Before you leave, click the button once.</p>
+<p>
+You can close this page in 5 seconds...
+<br>
+or give me 30 seconds.
+</p>
 
-    <button onclick="showMessage()">Open</button>
+<button class="yes" onclick="showMessage()">
+Okay, 30 seconds 🙂
+</button>
 
-    <div class="message" id="msg">
-        I'm sorry. <br><br>
+<button class="no" id="noBtn">
+Nope 😒
+</button>
 
-        I know you're upset and I completely understand.<br>
+<div id="message">
+<p id="typing"></p>
 
-        I'm not asking you to forget anything.<br>
+<br>
 
-        Just give me one chance to talk.<br><br>
+<h3>One request ❤️</h3>
 
-        If possible, unblock me and call me when you're free. 📞<br><br>
+<p>
+If possible,
+unblock me for a few minutes
+and let me explain things properly.
 
-        That's all. ❤️
-    </div>
+No pressure.
+Just one conversation.
+</p>
+
+<br>
+
+<button onclick="alert('Mission Unblock Initiated 😄')">
+📞 Unblock Me?
+</button>
+
+</div>
+
 </div>
 
 <script>
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+const x=Math.random()*300-150;
+const y=Math.random()*200-100;
+
+noBtn.style.transform=
+`translate(${x}px,${y}px)`;
+});
+
 function showMessage(){
- document.getElementById('msg').style.display='block';
+
+document.getElementById("message").style.display="block";
+
+const text=
+"Hi Suman... I know you're upset. I'm not here to argue, justify anything, or make excuses. I just wanted to say I'm genuinely sorry. You mean a lot to me, and I'd really appreciate one chance to talk.";
+
+let i=0;
+
+const target=document.getElementById("typing");
+
+const timer=setInterval(()=>{
+target.innerHTML+=text.charAt(i);
+i++;
+
+if(i>=text.length){
+clearInterval(timer);
 }
+},40);
+
+}
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*20+10)+"px";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.body.appendChild(heart);
+
+}
+
 </script>
 
 </body>
