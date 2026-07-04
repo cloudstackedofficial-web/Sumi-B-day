@@ -1,0 +1,139 @@
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(18px, -24px, 0) scale(1.04);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes float-card {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(-45deg) scale(1.08);
+    opacity: 0.92;
+  }
+}
+
+@keyframes spin-wheel {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(1440deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(219, 116, 94, 0.22);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(219, 116, 94, 0);
+  }
+}
+
+@keyframes reveal-letter {
+  from {
+    opacity: 0;
+    transform: translateY(36px) rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.is-visible {
+  animation: fade-up 700ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.ambient,
+.aurora {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.floating-card {
+  animation: float-card 6s ease-in-out infinite;
+}
+
+.flame {
+  animation: flicker 900ms ease-in-out infinite;
+}
+
+.wheel.is-spinning {
+  animation: spin-wheel 4.2s cubic-bezier(0.12, 0.84, 0.18, 1) forwards;
+}
+
+.result-pill {
+  animation: pulse-soft 2.8s ease-in-out infinite;
+}
+
+.page-transition.is-active {
+  opacity: 1;
+}
+
+.letter-paper.is-visible {
+  animation: reveal-letter 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.confetti-piece {
+  animation: confetti-fall var(--duration, 1400ms) linear forwards;
+}

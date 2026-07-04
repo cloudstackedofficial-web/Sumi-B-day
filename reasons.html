@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium date ideas and reasons page for a birthday story website.">
+    <title>Happy Birthday | 100 Date Ideas</title>
+    <script src="js/unlock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body data-page="reasons" data-prev="memories.html" data-next="gallery.html" data-swipe="true">
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <header class="site-header shell">
+      <a class="brand" href="home.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-copy">
+          <strong>Birthday Story</strong>
+          <small>Spin the next surprise</small>
+        </span>
+      </a>
+      <nav class="nav-pill" aria-label="Primary navigation">
+        <a href="home.html">Home</a>
+        <a href="memories.html">Timeline</a>
+        <a class="is-active" href="reasons.html">Date Ideas</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="guestbook.html">Guestbook</a>
+      </nav>
+      <div class="toolbar">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </header>
+
+    <main class="shell page-stack">
+      <section class="panel wheel-layout reveal">
+        <div>
+          <p class="eyebrow">Chapter 2</p>
+          <h1>One hundred date ideas, one spin at a time.</h1>
+          <p class="lede">Not every future plan has to be dramatic. Some of the best ones are just small excuses to spend more time together, laugh a little more, and make one more memory.</p>
+          <button class="button button-primary" id="spinWheel" type="button">Spin the Wheel</button>
+          <p class="result-pill" id="wheelResult">Tonight's idea: a long ride, a random stop, and no rush to head back.</p>
+        </div>
+
+        <div class="wheel-card glass-card">
+          <div class="wheel-pointer" aria-hidden="true"></div>
+          <div class="wheel" id="dateWheel"></div>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Future plans</p>
+          <h2>Little ideas for many more days together</h2>
+        </div>
+        <div class="idea-grid" id="ideaGrid"></div>
+      </section>
+    </main>
+
+    <aside class="music-dock glass-card" aria-label="Background music controls">
+      <button class="icon-button" id="musicToggle" type="button" aria-label="Pause background music" title="Pause background music">❚❚</button>
+      <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.5" aria-label="Music volume">
+      <span class="sr-only" id="musicStatus" aria-live="polite">Background music loading.</span>
+      <audio id="bgMusic" loop preload="auto" autoplay src="assets/music/birthday-theme.mp3"></audio>
+    </aside>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <script src="js/music.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

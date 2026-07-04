@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A countdown finale page for a birthday story website.">
+    <title>Happy Birthday | Countdown</title>
+    <script src="js/unlock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body data-page="countdown" data-prev="letter.html" data-swipe="true">
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <header class="site-header shell">
+      <a class="brand" href="home.html">
+        <span class="brand-mark">S</span>
+        <span class="brand-copy">
+          <strong>Birthday Story</strong>
+          <small>The final page</small>
+        </span>
+      </a>
+      <nav class="nav-pill" aria-label="Primary navigation">
+        <a href="home.html">Home</a>
+        <a href="guestbook.html">Guestbook</a>
+        <a href="letter.html">Letter</a>
+        <a class="is-active" href="countdown.html">Countdown</a>
+      </nav>
+      <div class="toolbar">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </header>
+
+    <main class="shell page-stack">
+      <section class="panel countdown-layout reveal">
+        <div>
+          <p class="eyebrow">Chapter 6</p>
+          <h1>Counting down to the next time we get to exist in the same place.</h1>
+          <p class="lede">Set the next day you are waiting for, and let this page hold the distance a little more gently until it arrives.</p>
+          <form class="countdown-config" id="countdownForm">
+            <label>
+              <span>Next special date</span>
+              <input id="countdownDate" type="datetime-local">
+            </label>
+            <button class="button button-secondary" type="submit">Save countdown</button>
+          </form>
+        </div>
+        <div class="countdown-card glass-card">
+          <div class="countdown-grid" id="countdownGrid">
+            <div><strong id="days">00</strong><span>Days</span></div>
+            <div><strong id="hours">00</strong><span>Hours</span></div>
+            <div><strong id="minutes">00</strong><span>Minutes</span></div>
+            <div><strong id="seconds">00</strong><span>Seconds</span></div>
+          </div>
+          <button class="button button-primary" id="finaleButton" type="button">Launch the Finale</button>
+        </div>
+      </section>
+
+      <section class="panel reveal finale-panel" id="finalePanel">
+        <p class="eyebrow">Final unlock</p>
+        <h2>Happy Birthday, beautiful.</h2>
+        <p>
+          If I had one uninterrupted minute with you right now, I would spend it telling you that
+          your presence made so many ordinary days memorable, and that this story only exists because you were worth remembering properly.
+        </p>
+      </section>
+    </main>
+
+    <aside class="music-dock glass-card" aria-label="Background music controls">
+      <button class="icon-button" id="musicToggle" type="button" aria-label="Pause background music" title="Pause background music">❚❚</button>
+      <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.5" aria-label="Music volume">
+      <span class="sr-only" id="musicStatus" aria-live="polite">Background music loading.</span>
+      <audio id="bgMusic" loop preload="auto" autoplay src="assets/music/birthday-theme.mp3"></audio>
+    </aside>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <script src="js/music.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/countdown.js" defer></script>
+  </body>
+</html>

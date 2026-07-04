@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A midnight countdown gate for a birthday surprise website.">
+    <title>Happy Birthday | Unlocks at Midnight</title>
+    <script src="js/unlock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body data-page="gate">
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
+
+    <header class="site-header shell gate-header">
+      <a class="brand" href="index.html" aria-label="Birthday countdown gate">
+        <span class="brand-mark">S</span>
+        <span class="brand-copy">
+          <strong>Birthday Story</strong>
+          <small>The surprise opens at midnight</small>
+        </span>
+      </a>
+
+      <div class="toolbar">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </header>
+
+    <main class="shell gate-shell">
+      <section class="panel panel-hero gate-panel reveal">
+        <div class="gate-copy">
+          <p class="eyebrow">A little suspense first</p>
+          <h1>Your birthday surprise opens at 12:00 AM.</h1>
+          <p class="lede">
+            Stay here for the final countdown. The full story remains locked until the clock turns
+            to midnight, and then the next page opens on its own.
+          </p>
+          <div class="gate-meta">
+            <div class="gate-pill">
+              <span class="mini-label">Unlock time</span>
+              <strong>July 5, 12:00 AM</strong>
+            </div>
+            <div class="gate-pill">
+              <span class="mini-label">What happens next</span>
+              <strong>The real birthday story unlocks instantly</strong>
+            </div>
+          </div>
+          <button class="button button-primary gate-enter" id="enterStory" type="button" disabled>
+            Locked until midnight
+          </button>
+          <p class="hint gate-hint" id="gateMessage">The timer is live. As soon as it reaches zero, the story will open automatically.</p>
+        </div>
+
+        <div class="glass-card gate-card">
+          <p class="mini-label">Midnight countdown</p>
+          <div class="countdown-grid gate-countdown" id="gateCountdown" aria-label="Time remaining until midnight unlock">
+            <div><strong id="gateDays">00</strong><span>Days</span></div>
+            <div><strong id="gateHours">00</strong><span>Hours</span></div>
+            <div><strong id="gateMinutes">00</strong><span>Minutes</span></div>
+            <div><strong id="gateSeconds">00</strong><span>Seconds</span></div>
+          </div>
+          <div class="gate-note">
+            <p>The page stays locked until the countdown ends, so the first reveal still feels like a moment.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="music-dock glass-card" aria-label="Background music controls">
+      <button class="icon-button" id="musicToggle" type="button" aria-label="Pause background music" title="Pause background music">❚❚</button>
+      <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.5" aria-label="Music volume">
+      <span class="sr-only" id="musicStatus" aria-live="polite">Background music loading.</span>
+      <audio id="bgMusic" loop preload="auto" autoplay src="assets/music/birthday-theme.mp3"></audio>
+    </aside>
+
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <script src="js/music.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/gate.js" defer></script>
+  </body>
+</html>
